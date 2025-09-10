@@ -74,10 +74,10 @@ Danphe EMR is an open-source web-based HIMS + EMR + EHR to make hospitals digiti
 
 Have a quick headstart of the Danphe EMR with some of the links listed below be sure to check them out:
 ### 🛠 Installation Guides 
-1. **[Installing Danphe App in Desktop Mode](https://www.youtube.com/watch?v=lKORZmKG0sA)**  
-2. **[Configuring Danphe inside IIS](https://www.youtube.com/watch?v=HmAAbFiPOKw)**
-3. **[License  Error](https://www.youtube.com/watch?v=FzjGJ5xm9mc)**
-4. **[Changing hospital logo](https://www.youtube.com/watch?v=vK7yF90xuf4)**
+lesson 1 -**[Installing Danphe App in Desktop Mode](https://www.youtube.com/watch?v=lKORZmKG0sA)**  
+lesson 2 -**[Configuring Danphe inside IIS](https://www.youtube.com/watch?v=HmAAbFiPOKw)**
+lesson 3 -**[License  Error](https://www.youtube.com/watch?v=FzjGJ5xm9mc)**
+lab 4 and lab 5  -**[Changing hospital logo, Name and Billing Header](https://www.youtube.com/watch?v=vK7yF90xuf4)**
 
 ---
 
