@@ -11,7 +11,11 @@
 <p align="center">
   ▶️ Click on the image above to have a clear walkthrough of our Hospital Management & EMR System.
   </p>
-
+<p align="center">
+  ▶️ Join our Whatsapp group . <a href="https://chat.whatsapp.com/D9ZafCPqxek79lMmjE6DhY" target="_blank">
+    Click here to join
+  </a>
+  </p>
 
  
 ## Overview  
