@@ -11,7 +11,11 @@
 <p align="center">
   ▶️ Click on the image above to have a clear walkthrough of our Hospital Management & EMR System.
   </p>
-
+<p align="center">
+  ▶️ Join our Whatsapp group . <a href="https://chat.whatsapp.com/D9ZafCPqxek79lMmjE6DhY" target="_blank">
+    Click here to join
+  </a>
+  </p>
 
  
 ## Overview  
@@ -51,6 +55,7 @@ Danphe HMIS has been consistent throughout these years and with that there are s
 - [Supported LIS Machines](#supported-lis-machines)
 - [Credits](#credits)
 - [ License](#-license)
+- [ Enterprise Release Notes](#enterprise-release-notes)
 - [ Contacts](#-contacts)
 
 ---
@@ -73,9 +78,10 @@ Danphe EMR is an open-source web-based HIMS + EMR + EHR to make hospitals digiti
 
 Have a quick headstart of the Danphe EMR with some of the links listed below be sure to check them out:
 ### 🛠 Installation Guides 
-1. **[Installing Danphe App in Desktop Mode](https://www.youtube.com/watch?v=lKORZmKG0sA)**  
-2. **[Configuring Danphe inside IIS](https://www.youtube.com/watch?v=HmAAbFiPOKw)**
-3. **[License  Error](https://www.youtube.com/watch?v=FzjGJ5xm9mc)**
+-  Lesson 1 - **[Installing Danphe App in Desktop Mode](https://www.youtube.com/watch?v=lKORZmKG0sA)**  
+-  Lesson 2 - **[Configuring Danphe inside IIS](https://www.youtube.com/watch?v=HmAAbFiPOKw)** 
+ - Lesson 3 - **[License  Error](https://www.youtube.com/watch?v=FzjGJ5xm9mc)**
+-  Lab 4 and Lab 5  - **[Changing hospital logo, Name and Billing Header](https://www.youtube.com/watch?v=vK7yF90xuf4)**
 
 ---
 
@@ -117,8 +123,8 @@ Start contributing to Danphe EMR with the comprehensive [Setup Guide](https://op
 ### 🔗 Interactive Flow Diagram
 
 
-<a href="https://sam101-pic.github.io/Danphe_HMIS/Sam.html" target="_blank">
-  <img src="./Docs/Flow_diagrams/Basic_Flow.jpg" alt="Flow Diagram" />
+<a href="https://Sam101-pic.github.io/danphe-readme/Flow_diagrams/index.html" target="_blank">
+  <img src="./Flow_diagrams/Patient_Journey.jpg" alt="Flow Diagram" />
   </a>
 
 
@@ -296,6 +302,14 @@ Please read the following [License](https://github.com/Sam101-pic/HTML-CSS/blob/
 
 ---
 
+
+## Enterprise Release Notes
+
+This release introduces significant enhancements across multiple modules including administrative management, pharmacy operations, accounting workflows, and user experience improvements.Click on 
+[Enterprise Release Notes](https://github.com/hospital-management-system-emr/hims-emr-enterpise) for more information. Thank you!
+
+---
+
 ## 💬 Contacts
 For any further details be sure to contact us through our social links and for furthermore details be sure to mail me.
 - **Email**: Send us any of your inquries through this mail [shiv_koirala@yahoo.com](mailto:shiv_koirala@yahoo.com).
@@ -308,4 +322,3 @@ Reach to us through our social media platforms:
 
 ---
 [Back to top](#top)
-
