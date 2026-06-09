@@ -675,7 +675,7 @@ export class DanpheGridComponent implements OnInit, AfterViewInit {
         printContents = (this.paramData.ShowFooter) ? printContents + this.footerContent : printContents;
       }
       documentContent +=
-        '<body onload="window.print()">' + printContents + "</body></html>";
+        '<body onload="window.print()">' + CommonFunctions.SanitizeHtmlForPrint(printContents) + "</body></html>";
       popupWinindow.document.write(documentContent);
       popupWinindow.document.close();
     }
@@ -696,7 +696,7 @@ export class DanpheGridComponent implements OnInit, AfterViewInit {
       var th = document.createElement("th"); // TABLE HEADER.
       th.setAttribute("style", "font-weight:bold; border:1px solid black;");
       th.style.backgroundColor = "#ababad";
-      th.innerHTML = CommonFunctions.GetKeyName(newCol[i], gridColList); //newCol[i];
+      th.textContent = CommonFunctions.GetKeyName(newCol[i], gridColList); //newCol[i];
       tr.appendChild(th);
     }
 
@@ -706,7 +706,7 @@ export class DanpheGridComponent implements OnInit, AfterViewInit {
       for (var j = 0; j < newCol.length; j++) {
         var tabCell = tr.insertCell(-1);
         tabCell.setAttribute("style", "border:1px solid black;");
-        tabCell.innerHTML = data[i][newCol[j]];
+        tabCell.textContent = data[i][newCol[j]] === null || data[i][newCol[j]] === undefined ? "" : data[i][newCol[j]].toString();
       }
     }
     // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
@@ -1813,7 +1813,7 @@ export class DanpheGridComponent implements OnInit, AfterViewInit {
     this.changeDetector.detectChanges();
     printContents = (this.footerContent) ? printContents + this.footerContent : printContents;
     documentContent +=
-      '<body onload="window.print()">' + printContents + "</body></html>";
+      '<body onload="window.print()">' + CommonFunctions.SanitizeHtmlForPrint(printContents) + "</body></html>";
     popupWinindow.document.write(documentContent);
     popupWinindow.document.close();
   }
@@ -1992,7 +1992,7 @@ export class DanpheGridComponent implements OnInit, AfterViewInit {
     this.changeDetector.detectChanges();
     printContents = (this.footerContent) ? printContents + this.footerContent : printContents;
     documentContent +=
-      '<body onload="window.print()">' + printContents + "</body></html>";
+      '<body onload="window.print()">' + CommonFunctions.SanitizeHtmlForPrint(printContents) + "</body></html>";
     popupWinindow.document.write(documentContent);
     popupWinindow.document.close();
   }
