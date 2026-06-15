@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { CommonFunctions } from '../common.functions';
 
 @Component({
   selector: 'app-print-page',
@@ -27,7 +28,7 @@ export class DanphePrintComponent implements OnInit {
   }
 
   print() {
-    let contents = this.printData;
+    let contents = CommonFunctions.SanitizeHtmlForPrint(this.printData);
     let iframe = document.createElement('iframe');
     document.body.appendChild(iframe);
     let documentContent = "<html><head>";

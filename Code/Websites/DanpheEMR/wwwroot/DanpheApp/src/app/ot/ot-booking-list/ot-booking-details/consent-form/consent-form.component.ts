@@ -1,10 +1,10 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import * as moment from "moment";
 import { ClinicalTemplate_DTO } from '../../../../clinical-settings/shared/dto/get-clinical-template.dto';
 import { GetOTBookingDetails_DTO } from '../../../../ot/shared/dto/get-ot-booking-details.dto';
 import { OperationTheatreBLService } from '../../../../ot/shared/ot.bl.service';
 import { DanpheHTTPResponse } from '../../../../shared/common-models';
+import { CommonFunctions } from '../../../../shared/common.functions';
 import { MessageboxService } from '../../../../shared/messagebox/messagebox.service';
 import { ENUM_DanpheHTTPResponses, ENUM_MessageBox_Status } from '../../../../shared/shared-enums';
 
@@ -21,7 +21,7 @@ export class ConsentFormComponent implements OnInit {
   ShowConsentFormPage: boolean = false;
   loading: boolean = false;
   SelectedTemplate = new ClinicalTemplate_DTO();
-  TemplateHTMLContent: SafeHtml = '';
+  TemplateHTMLContent: string = '';
   ShowConsent: boolean = false;
   @ViewChild('consentForm') consentForm: ElementRef;
   IsTemplateSelected: boolean = false;
@@ -29,7 +29,6 @@ export class ConsentFormComponent implements OnInit {
   constructor(
     private _otBLService: OperationTheatreBLService,
     private _messageBoxService: MessageboxService,
-    private _domSanitizer: DomSanitizer,
   ) {
 
   }
@@ -75,8 +74,7 @@ export class ConsentFormComponent implements OnInit {
       if (template) {
         this.SelectedTemplate = template;
         let updatedHTMLContent = this.ReplacePlaceholders(template.TemplateHTML);
-        let sanitizedHTMLContent = this._domSanitizer.bypassSecurityTrustHtml(updatedHTMLContent);
-        this.TemplateHTMLContent = sanitizedHTMLContent;
+        this.TemplateHTMLContent = CommonFunctions.SanitizeHtmlForPrint(updatedHTMLContent);
         this.ShowConsent = true;
       }
     }
@@ -87,13 +85,13 @@ export class ConsentFormComponent implements OnInit {
 
   ReplacePlaceholders(templateHTML: string): string {
     return templateHTML
-      .replace('{{PatientName}}', this.SelectedOTBooking.PatientName)
-      .replace('{{CurrentDate}}', moment().format("YYYY-MM-DD"));
+      .replace('{{PatientName}}', CommonFunctions.HtmlEncode(this.SelectedOTBooking.PatientName))
+      .replace('{{CurrentDate}}', CommonFunctions.HtmlEncode(moment().format("YYYY-MM-DD")));
   }
 
   PrintConsentForm(): void {
     this.loading = true;
-    let printContents = this.consentForm.nativeElement.innerHTML;
+    let printContents = CommonFunctions.SanitizeHtmlForPrint(this.consentForm.nativeElement.innerHTML);
     const iframe = document.createElement('iframe');
     document.body.appendChild(iframe);
 

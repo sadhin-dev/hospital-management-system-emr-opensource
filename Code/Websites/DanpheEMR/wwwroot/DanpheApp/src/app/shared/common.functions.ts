@@ -242,6 +242,56 @@ export class CommonFunctions {
     return retString;
   }
 
+  static HtmlEncode(input: any): string {
+    if (input === null || input === undefined) {
+      return "";
+    }
+
+    return input.toString()
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
+  }
+
+  static SanitizeHtmlForPrint(inputHtml: any): string {
+    if (inputHtml === null || inputHtml === undefined) {
+      return "";
+    }
+
+    let parser = new DOMParser();
+    let parsedDoc = parser.parseFromString(inputHtml.toString(), "text/html");
+    let blockedElements = parsedDoc.querySelectorAll("script, iframe, object, embed, base, form, input, button, textarea, select, meta[http-equiv='refresh']");
+
+    for (let index = blockedElements.length - 1; index >= 0; index--) {
+      blockedElements[index].parentNode.removeChild(blockedElements[index]);
+    }
+
+    let allElements = parsedDoc.body.getElementsByTagName("*");
+    for (let elementIndex = 0; elementIndex < allElements.length; elementIndex++) {
+      let element = allElements[elementIndex];
+      let attributes = Array.prototype.slice.call(element.attributes);
+
+      attributes.forEach((attr: Attr) => {
+        let attrName = attr.name.toLowerCase();
+        let attrValue = attr.value ? attr.value.trim().toLowerCase() : "";
+
+        if (attrName.indexOf("on") === 0 || attrName === "srcdoc" || attrName === "formaction") {
+          element.removeAttribute(attr.name);
+        }
+        else if ((attrName === "href" || attrName === "src" || attrName === "xlink:href") && attrValue.indexOf("javascript:") === 0) {
+          element.removeAttribute(attr.name);
+        }
+        else if (attrName === "style" && (attrValue.indexOf("expression(") >= 0 || attrValue.indexOf("javascript:") >= 0)) {
+          element.removeAttribute(attr.name);
+        }
+      });
+    }
+
+    return parsedDoc.body.innerHTML;
+  }
+
   static GetUniqueItemsFromArray(inputArr: any[]) {
     //var items = [4, 5, 4, 6, 3, 4, 5, 2, 23, 1, 4, 4, 4]
     //below code works only for es6, we might need other solution.
